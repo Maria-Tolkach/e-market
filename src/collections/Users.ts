@@ -1,0 +1,33 @@
+import { CollectionConfig } from "payload/types";
+
+export const Users: CollectionConfig = {
+  slug: "users",
+  auth: {
+    verify: {
+      generateEmailHTML: ({ token }) => {
+        return `<a href='${process.env.NEXT_PUBLIC_SERVER_URL}/verify-email?token=${token}'>Verify account</a>`
+        // return `<h1>hello pls verify</h1>`
+      }
+    }
+  },
+  access: {
+    read: () => true,
+    create: () => true,
+  },
+  fields: [
+    {
+      name: "role",
+      defaultValue: "user",
+      required: true,
+      // admin: {
+        // condition: ({req}) => false
+        // condition: ({req}) => req.user.role === "admin"
+      // },
+      type: "select",
+      options: [
+        { label: "Admin", value: "admin" },
+        { label: "User", value: "user" },
+      ]
+    }
+  ]
+}
