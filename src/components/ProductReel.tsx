@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import { TQueryValidator } from "@/lib/validators/query-validator";
 import { trpc } from "../trpc/client";
@@ -10,28 +10,33 @@ interface ProductReelProps {
   title: string;
   subTitle?: string;
   href?: string;
-  query: TQueryValidator
+  query: TQueryValidator;
 }
 
-const FALLBACK_LIMIT = 4
+const FALLBACK_LIMIT = 4;
 
 const ProductReel = (props: ProductReelProps) => {
   const { title, subTitle, href, query } = props;
 
-  const { data: queryResults, isLoading } = trpc.getInfinitProducts.useInfiniteQuery({
-    limit: query.limit ?? FALLBACK_LIMIT, query
-  }, {
-    getNextPageParam: (lastPage) => lastPage.nextPage,
-  })
+  const { data: queryResults, isLoading } =
+    trpc.getInfinitProducts.useInfiniteQuery(
+      {
+        limit: query.limit ?? FALLBACK_LIMIT,
+        query,
+      },
+      {
+        getNextPageParam: (lastPage) => lastPage.nextPage,
+      }
+    );
 
-  const products = queryResults?.pages.flatMap((page) => page.items)
+  const products = queryResults?.pages.flatMap((page) => page.items);
 
-  let map: ( Product | null )[] = []
+  let map: (Product | null)[] = [];
 
-  if ( products && products.length) {
-    map = products
-  } else if ( isLoading ) {
-    map = new Array<null>(query.limit ?? FALLBACK_LIMIT).fill(null)
+  if (products && products.length) {
+    map = products;
+  } else if (isLoading) {
+    map = new Array<null>(query.limit ?? FALLBACK_LIMIT).fill(null);
   }
 
   return (
@@ -49,9 +54,11 @@ const ProductReel = (props: ProductReelProps) => {
         </div>
 
         {href ? (
-          <Link href={href} className="hidden text-sm font-medium text-blue-600 hover:text-blue-500 md:block">
-            Shop the collection{" "}
-            <span aria-hidden="true">&rarr;</span>
+          <Link
+            href={href}
+            className="hidden text-sm font-medium text-blue-600 hover:text-blue-500 md:block"
+          >
+            Shop the collection <span aria-hidden="true">&rarr;</span>
           </Link>
         ) : null}
       </div>
@@ -60,7 +67,11 @@ const ProductReel = (props: ProductReelProps) => {
         <div className="mt-6 flex items-center w-full">
           <div className="w-full grid grid-cols-2 gap-x-4 gap-y-10 sm:gap-x-6 md:grid-cols-4 md:gap-y-10 lg:gap-y-8">
             {map.map((product, index) => (
-              <ProductListing product={product} key={index} index={index} />
+              <ProductListing
+                product={product}
+                key={`product-${index}`}
+                index={index}
+              />
             ))}
           </div>
         </div>
