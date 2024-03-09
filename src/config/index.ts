@@ -1,6 +1,6 @@
 export const PRODUCT_CATEGORIES = [
   {
-    label: "Book Type",
+    label: "New Arrival",
     value: "book_type" as const,
     featured: [
       {

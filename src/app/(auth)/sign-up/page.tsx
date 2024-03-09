@@ -20,10 +20,6 @@ const Page = () => {
     resolver: zodResolver(AuthCredentialsValidator)
   });
 
-  // const { data } = trpc.anyApiRoute.useQuery()
-  // const { data } = trpc.auth.useQuery()
-  // console.log("data", data)
-
   const router = useRouter()
 
   const { mutate, isLoading } = trpc.auth.createPayloadUser.useMutation({

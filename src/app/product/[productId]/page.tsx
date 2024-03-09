@@ -9,7 +9,7 @@ import { Check, Shield } from "lucide-react";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 
-interface PagePros {
+interface PageProps {
   params: {
     productId: string;
   };
@@ -20,7 +20,7 @@ const BREADCRUMBS = [
   { id: 2, name: "Products", href: "/products" },
 ];
 
-const Page = async ({ params }: PagePros) => {
+const Page = async ({ params }: PageProps) => {
   const { productId } = params;
   const payload = await getPayloadClient();
   const { docs: products } = await payload.find({
