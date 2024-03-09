@@ -5,17 +5,17 @@ export const PRODUCT_CATEGORIES = [
     featured: [
       {
         name: "Non-fiction",
-        href: "#",
+        href: "/products?category=book_type",
         imageSrc: "/nav/book-type/non-fiction.png"
       },
       {
         name: "New Arrivals",
-        href: "#",
+        href: "/products?category=book_type&sort=desc",
         imageSrc: "/nav/book-type/new-arrivals.png"
       },
       {
         name: "Bestsellers",
-        href: "#",
+        href: "/products?category=book_type",
         imageSrc: "/nav/book-type/bestsellers.png"
       },
     ]
@@ -26,17 +26,17 @@ export const PRODUCT_CATEGORIES = [
     featured: [
       {
         name: "Favorite",
-        href: "#",
+        href: "/products?category=recomendations",
         imageSrc: "/nav/recomendations/favorite.png"
       },
       {
         name: "New Arrivals",
-        href: "#",
+        href: "/products?category=recomendations&sort=desc",
         imageSrc: "/nav/recomendations/new.png"
       },
       {
         name: "Bestselling",
-        href: "#",
+        href: "/products?category=recomendations",
         imageSrc: "/nav/recomendations/bestsellering.png"
       },
     ]
