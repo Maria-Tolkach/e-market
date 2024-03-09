@@ -1,3 +1,4 @@
+import { paymentRouter } from './payment-router';
 import { z } from "zod";
 import { authRouter } from "./auth-router";
 import { publicProcedure, router } from "./trpc";
@@ -44,7 +45,8 @@ export const appRouter = router({
       items,
       nextPage: hasNextPage ? nextPage : null
     }
-  })
+  }),
+  payment: paymentRouter
 })
 
 export type AppRouter = typeof appRouter

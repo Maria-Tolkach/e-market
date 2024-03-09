@@ -25,8 +25,8 @@ export default buildConfig({
     bundler: webpackBundler(),
     meta: {
       titleSuffix: "- BookMarket",
-      favicon: "/favicon.ico",
-      ogImage: "/thumbnail.jpg",
+      favicon: "/logo.ico",
+      ogImage: "/thumbnail.png",
     }
   },
   rateLimit: {
