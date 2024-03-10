@@ -36,17 +36,17 @@ export const ReceiptEmail = ({
   return (
     <Html>
       <Head />
-      <Preview>Your DigitalHippo Receipt</Preview>
+      <Preview>Your E-Market Receipt</Preview>
 
       <Body style={main}>
         <Container style={container}>
           <Section>
             <Column>
               <Img
-                src={`${process.env.NEXT_PUBLIC_SERVER_URL}/hippo-email-sent.png`}
+                src={`${process.env.NEXT_PUBLIC_SERVER_URL}/sent email.png`}
                 width="100"
                 height="100"
-                alt="DigitalHippo"
+                alt="E-Market"
               />
             </Column>
 
@@ -158,7 +158,7 @@ export const ReceiptEmail = ({
             <Link href="#">Privacy Policy </Link>
           </Text>
           <Text style={footerCopyright}>
-            Copyright © 2023 DigitalHippo Inc. <br />{" "}
+              E-Market Inc. <br />{" "}
             <Link href="#">All rights reserved</Link>
           </Text>
         </Container>
