@@ -6,6 +6,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { useEffect, useState } from 'react'
+import { Cart } from './Cart'
 
 const MobileNav = () => {
   const [isOpen, setIsOpen] = useState<boolean>(false)
@@ -97,6 +98,14 @@ const MobileNav = () => {
             </div>
 
             <div className='space-y-6 border-t border-gray-200 px-4 py-6'>
+              <div className='flow-root'>
+                <Link
+                  onClick={() => closeOnCurrent('/cart')}
+                  href='/cart'
+                  className='-m-2 block p-2 font-medium text-gray-900'>
+                  Cart
+                </Link>
+              </div>
               <div className='flow-root'>
                 <Link
                   onClick={() => closeOnCurrent('/sign-in')}
